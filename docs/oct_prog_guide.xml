@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book
+PUBLIC "-//OASIS//DTD DocBook XML V4.5/zh_cn" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+[
+<!ENTITY section_1 SYSTEM "preface.xml">
+]>
+<book>
+    <info>
+        <title>
+            OCTEON Programmer's Guide - 
+            The Fundamentals
+        </title>
+        <copyright><year>2012</year><hold>nicephil</hold></copyright>
+        <email>nicephil@gmail.com</email>
+    </info>
+
+        <preface>
+            <title>
+                前言
+            </title>
+            &section_1; <!--1-->
+        </preface>
+
+        <chapter>
+            <title>
+                Introduction
+            </title>
+        </chapter>
+
+        <chapter>
+            <title>
+                Packet Flow
+            </title>
+        </chapter>
+
+        <chapter>
+            <title>
+                Software Overview
+            </title>
+        </chapter>
+
+        <chapter>
+            <title>
+                Software Development Kit (SDK) Tutorial
+            </title>
+        </chapter>
+
+        <chapter>
+            <title>
+                Software Debugging Tutorial
+            </title>
+        </chapter>
+
+        <chapter>
+            <title>
+                OCTEON Application Performance Tuning 
+                Whitepaper
+            </title>
+        </chapter>
+
+        <appendix>
+            <title>
+                Glossary
+            </title>
+        </appendix>
+
+</book>

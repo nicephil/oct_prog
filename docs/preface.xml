@@ -1,0 +1,86 @@
+<para>  
+    OCTEON程序员指南提供给软件工程师
+    开发运行在OCTEON处理器上的代码所需要的基础信息。
+</para>
+<para>
+    这一卷包含如下章节：
+</para>
+<orderedlist>
+    <listitem>Introduction</listitem>
+    <listitem>Packet Flow</listitem>
+    <listitem>Software Overview</listitem>
+    <listitem>SDK Tutorial</listitem>
+    <listitem>Software Debugging Tutorial</listitem>
+    <listitem>OCTEON Application Performance Tuning Whitepaper</listitem>
+    <listitem>Glossary</listitem>
+</orderedlist>
+<para>
+    和这个章节相关的附录没有收集在本书后面，而是包含在相应的
+    章节。
+</para>
+<para>
+    章节应该按照顺序，除了附录。每个章节建立在前一章节提供的
+    信息之上。
+</para>
+<para>
+    如果你有任何提高或改正的建议,或者你发现了在这个出版物的
+    错误，请发电邮到oct-prog-guide@caviumnetworks.com通知
+    我们。
+</para>
+<para>
+    以下节简要介绍OCTEON程序员指南卷 1
+</para>
+
+<sect1>
+     <title>第一章：介绍</title>
+    <para>
+        这个章节提供了Cavium Network的OCTEON处理器系列的综述
+        并介绍他的成员提供的关键特性。
+    </para>
+    <para>
+        这个章节也提供了关于OCTEON处理器关键特性的优势的
+        简要讨论:
+    </para>
+    <itemizedlist>
+        <listitem>集成硬件加速器</listitem>
+        <listitem>每个内核安全协处理器</listitem>
+        <listitem>片上互联</listitem>
+        <listitem>特定Cavium Networks特定指令</listitem>
+        <listitem>缓存层次</listitem>
+    </itemizedlist>
+</sect1>
+
+ <sect1>
+     <title>第二章：包处理流程</title>
+     <para>
+         这个章节提供了一个关于包管理单元如何卸载和内核协作
+         来加速通过OCTEON处理器的包处理流程的详细的描述。这个
+         章节包含调度/同步/排序（SSO）单元如何卸载内核的负载。
+     </para>
+ </sect1>
+
+ <sect1>
+     <title>第三章：软件综述</title>
+ </sect1>
+
+ <sect1>
+     <title>第四章：SDK指导</title>
+ </sect1>
+
+ <sect1>
+     <title>第五章：软件调试指导</title>
+     <para>
+     </para>
+ </sect1>
+
+ <sect1>
+     <title>关于OCTEON应用程序性能调谐白皮书</title>
+     <para>
+     </para>
+ </sect1>
+
+ <sect1>
+     <title>术语</title>
+     <para>
+     </para>
+ </sect1>
