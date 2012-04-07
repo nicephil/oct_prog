@@ -3,15 +3,21 @@
 PUBLIC "-//OASIS//DTD DocBook XML V4.5/zh_cn" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
 [
 <!ENTITY section_1 SYSTEM "preface.xml">
+<!ENTITY section_2 SYSTEM "intr.xml">
 ]>
 <book>
     <info>
         <title>
-            OCTEON Programmer's Guide - 
-            The Fundamentals
+            OCTEON程序员指南 - 基础卷
+            <superscript>OCTEON Programmer's Guide - 
+                The Fundamentals</superscript>
         </title>
-        <copyright><year>2012</year><hold>nicephil</hold></copyright>
-        <email>nicephil@gmail.com</email>
+        <author>nicephil</author>
+        <address>nicephil@gmail.com</address>
+        <copyright>
+            <year>2012</year>
+            <holder>nicephil</holder>
+        </copyright>
     </info>
 
         <preface>
@@ -23,8 +29,9 @@ PUBLIC "-//OASIS//DTD DocBook XML V4.5/zh_cn" "http://www.oasis-open.org/docbook
 
         <chapter>
             <title>
-                Introduction
+                介绍
             </title>
+            &section_2; <!--2-->
         </chapter>
 
         <chapter>

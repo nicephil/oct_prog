@@ -1,0 +1,154 @@
+<sect1>
+    <title>介绍</title>
+    <para>这个章节提供了Cavium Networks OCTEON处理器系列的综述，并且介绍他们成员提供的关键特性。</para>
+    <para>这个章节也提供了OCTEON处理器关键特性的优点：</para>
+    <itemizedlist>
+        <listitem>集成硬件加速器</listitem>
+        <listitem>每个核安全协处理器</listitem>
+        <listitem>片上互联</listitem>
+        <listitem>特定Cavium Networks特定指令</listitem>
+        <listitem>缓存层次</listitem>
+    </itemizedlist>
+    <note>遍及这个章节，OCTEON模式特定硬件模块被注有星号（*）。查询硬件参考手册获取详细信息</note>
+</sect1>
+
+<sect1>
+    <title>介绍OCTEON处理器系列</title>
+    <para>OCTEON处理器系列包含三代软件兼容，高集成多核产品：OCTEON，OCTEON Plus和OCTEON II（CN3XXX，
+        CN5XXX，和CN6XXX）。这些处理器被优化来提供高性能，高带宽，和低功耗。
+    </para>
+    <para>
+        OCTEON处理器能被用来作为控制层面应用程序，数据层面应用程序，或两者杂合。OCTEON处理器是智能网络，
+        无线和100Mbps到40Gbps存储应用程序的理想方案。
+    </para>
+    <para>
+        所有OCTEON产品共享同样的构架，它能跨全部系列的软件兼容。个别OCTEON处理器基于以下变化和伸缩：
+    </para>
+    <itemizedlist>
+        <listitem>cnMIPS内核集成个数</listitem>
+        <listitem>内核和内部互联的频率</listitem>
+        <listitem>集成I/O接口的数目和类型</listitem>
+        <listitem>集成硬件加速单元的种类和数目</listitem>
+        <listitem>缓存大小和关联性</listitem>
+    </itemizedlist>
+    <para>
+        每个OCTEON产品提供一个特性集合，它被优化来给特定功能和目标应用程序的性能需要。一个OCTEON模型的写的软件
+        可以运行在另外一个OCTEON模型上只要需要的特性可用。
+    </para>
+    <para>
+        Cavium Networks积极鼓励添加新特性和增强给OCTEON系列。更多信息和最新添加和未来，可联系销售
+    </para>
+    <sect1>
+        <title>目标应用程序</title>
+        <para>
+            OCTEON处理器被用在广泛的OEM设备中。一些例子包含路由器，交换机，统一威胁管理（UTM）应用，
+            内容敏感交换机，应用敏感网关，三网合一宽带网关，WLAN存取和聚合设备，3G，WiMAX和LTE基站
+            和核心网设备，存储网络设备，存储系统，服务器和智能网络适配卡。
+        </para>
+    </sect1>
+    <sect1>
+        <title>关键特性</title>
+        <para>这个小节提供了OCTEON关键特性的简要综述。因为OCTEON II模型正在开发，一些特性可能由变化。</para>
+        <para>
+            <emphasis>多达32个内核，高达1.5GHz:</emphasis> 
+            OCTEON系列多核处理器支持多达32个核，速率在300MHz到1.5GHz。
+            <itemizedlist>
+                <listitem>OCTEON和OCTEON Plus模型由1到16个内核，速度在300MHz到800MHz</listitem>
+                <listitem>OCTEON II模型多达32个核，速度高达1.5GHz</listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <emphasis>硬件加速单元：</emphasis>多个硬件加速单元集成在每个OCTEON处理器中。这些单元减载核，减少
+            软件开销和复杂度。这些加速器单元有：
+            <itemizedlist>
+                <listitem>包管理加速器</listitem>
+                <listitem>安全加速器</listitem>
+                <listitem>应用加速器</listitem>
+                <listitem>特定加速器</listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <emphasis>专用DMA引擎:</emphasis>专用DMA被提供给每个硬件单元，他们需要访问呢内存。额外内存到PCI
+            PCIe/PCI/PCI-X DMA引擎。
+        </para>
+        <para>
+            <emphasis>高速内部互联：</emphasis>硬件单元和核被使用高速互联连接。这些内部互联运行在和核
+            同一个频率。每个内部互联时一个多总线集合带扩展流水线和负责硬件仲裁逻辑。跨度和总线布置被优化
+            来流水线包数据流，消除潜在瓶颈。OCTEON II包含了cross-bar混合连接来支持多达32内核或更多。
+        </para>
+        <para>
+            <emphasis>工业标准工具链和操作系统：</emphasis> 工业标准工具链（GCC，GDB）和操作系统（包含SMP
+            Linux）被修改来利用OCTEON处理器的多核，硬件加速单元，和特定Cavium Network特定指令。用户能容易的
+            写C/C++代码，和能复用旧代码软件。程序被写给MIPS64和MIPS32 ISA都支持。
+        </para>
+        <para>
+            <emphasis>弹性软件构架：</emphasis> 这些硬件构架允许弹性软件构架设计，包含可以分组核，来增加跟多
+            需要的性能。一个通用配置时数据层面加上控制层面。在配置中，一组核用来运行数据层面应用。一组核用来
+            运行SMP Linux或其他通用操作系统提供控制层面功能。如果需要核可以被添加到数据层面，来增加性能。
+        </para>
+        <para>
+            <emphasis>简化软件开发：</emphasis> 软件开发复杂度被使用硬件加速单元，弹性软件构架，标准MIPS64 
+            ISA，和工业标准工具链和操作系统简化。一个Caivum Networks软件开发工具集被提供。SDK包含GNU C/C++
+            编译器和其他开发工具，C语言APIs给硬件单元，一个简单执行体能运行代码在核上不需要任何操作系统，和
+            Cavium Networks SMP Linux。可选工具包支持更复杂特性。
+        </para>
+        <para>
+            <emphasis>包管理加速器：</emphasis> 包接收/发送被人软件可配的包管理加速器自动完成。加速器包含：
+            <itemizedlist>
+                <listitem>包数据缓存自动申请和释放</listitem>
+                <listitem>层2到层4包头分析，异常检查和校验和计算</listitem>
+                <listitem>多达7元组流分类带VLAN协议栈支持</listitem>
+                <listitem>包数据自动保存在L2/DRAM在进入</listitem>
+                <listitem>包排序和调度自动被硬件管理无需显示软件锁</listitem>
+                <listitem>包数据发送被硬件加速器管理</listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <emphasis>TCP/UDP加速器：</emphasis> TCP/UDP加速特性包含：
+            <itemizedlist>
+                <listitem>包管理加速</listitem>
+                <listitem>自动包头检查在接收时</listitem>
+                <listitem>自动TCP/UDP校验和产生在发送时</listitem>
+                <listitem>计时器单元支持更有效TCP重发实现</listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <emphasis>每个核安全硬件加速器： </emphasis> 通用安全算法被通过可选的每个核安全引擎加速。
+            这些硬件加速算法包含：
+            <itemizedlist>
+                <listitem>巨大乘积单元为了更快标准RSA和霍夫曼操作</listitem>
+                <listitem>安全哈希算法：MD5,SHA-1, SHA-224, SHA-256, SHA-384</listitem>
+                <listitem>对称加密算法：3DES和DES在ECB和CBC模式</listitem>
+                <listitem>非对称关键操作:RSA,DSA,DH</listitem>
+                <listitem>TKIP操作</listitem>
+                <listitem>加罗哇域操作: SNOW 3G, RAID计算</listitem>
+                <listitem></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <emphasis>每个核CRC引擎： </emphasis> CRC产生被加速。
+        </para>
+        <para>
+            <emphasis>FIPS认证支持：</emphasis>高级FIPS(联邦处理标准）认证
+        </para>
+        <para>
+            <emphasis>存储应用加速：</emphasis>RAID引擎
+        </para>
+        <para>
+            其他体系相关特性：
+            <itemizedlist>
+                <listitem>MIPS64 release2整数指令集合体系(ISA)</listitem>
+                <listitem>额外Cavium Network特定指令，增强MIPS核穿件cnMIPS核。</listitem>
+                <listitem></listitem>
+                <listitem></listitem>
+                <listitem></listitem>
+                <listitem></listitem>
+                <listitem></listitem>
+                <listitem></listitem>
+                <listitem></listitem>
+                <listitem></listitem>
+                <listitem></listitem>
+            </itemizedlist>
+        </para>
+    </sect1>
+</sect1>

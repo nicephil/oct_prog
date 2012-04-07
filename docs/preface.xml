@@ -6,13 +6,13 @@
     这一卷包含如下章节：
 </para>
 <orderedlist>
-    <listitem>Introduction</listitem>
-    <listitem>Packet Flow</listitem>
-    <listitem>Software Overview</listitem>
-    <listitem>SDK Tutorial</listitem>
-    <listitem>Software Debugging Tutorial</listitem>
-    <listitem>OCTEON Application Performance Tuning Whitepaper</listitem>
-    <listitem>Glossary</listitem>
+    <listitem>介绍</listitem>
+    <listitem>包处理流程</listitem>
+    <listitem>软件综述</listitem>
+    <listitem>SDK教程</listitem>
+    <listitem>软件调试教程</listitem>
+    <listitem>OCTEON应用程序性能调谐白皮书</listitem>
+    <listitem>术语</listitem>
 </orderedlist>
 <para>
     和这个章节相关的附录没有收集在本书后面，而是包含在相应的
@@ -24,63 +24,165 @@
 </para>
 <para>
     如果你有任何提高或改正的建议,或者你发现了在这个出版物的
-    错误，请发电邮到oct-prog-guide@caviumnetworks.com通知
+    错误，请发电邮到<email>oct-prog-guide@caviumnetworks.com</email>通知
     我们。
 </para>
 <para>
     以下节简要介绍OCTEON程序员指南卷 1
 </para>
 
-<sect1>
-     <title>第一章：介绍</title>
-    <para>
-        这个章节提供了Cavium Network的OCTEON处理器系列的综述
-        并介绍他的成员提供的关键特性。
-    </para>
-    <para>
-        这个章节也提供了关于OCTEON处理器关键特性的优势的
-        简要讨论:
-    </para>
-    <itemizedlist>
-        <listitem>集成硬件加速器</listitem>
-        <listitem>每个内核安全协处理器</listitem>
-        <listitem>片上互联</listitem>
-        <listitem>特定Cavium Networks特定指令</listitem>
-        <listitem>缓存层次</listitem>
-    </itemizedlist>
-</sect1>
+<para>第一章：介绍</para>
+<para>
+   这个章节提供了Cavium Network的OCTEON处理器系列的综述
+   并介绍他的成员提供的关键特性。
+</para>
+<para>
+   这个章节也提供了关于OCTEON处理器关键特性的优势的
+   简要讨论:
+</para>
+<itemizedlist>
+   <listitem>集成硬件加速器</listitem>
+   <listitem>每个内核安全协处理器</listitem>
+   <listitem>片上互联</listitem>
+   <listitem>特定Cavium Networks特定指令</listitem>
+   <listitem>缓存层次</listitem>
+</itemizedlist>
 
- <sect1>
-     <title>第二章：包处理流程</title>
-     <para>
-         这个章节提供了一个关于包管理单元如何卸载和内核协作
-         来加速通过OCTEON处理器的包处理流程的详细的描述。这个
-         章节包含调度/同步/排序（SSO）单元如何卸载内核的负载。
-     </para>
- </sect1>
+<para>第二章：包处理流程</para>
+<para>
+    这个章节提供了一个关于包管理单元如何卸载和内核协作
+    来加速通过OCTEON处理器的包处理流程的详细的描述。这个
+    章节包含调度/同步/排序（SSO）单元如何卸载内核的负载。
+</para>
+<para>
+    这个章节被分为以下小节：
+</para>
+<itemizedlist>
+    <listitem>
+        包处理流程综述：一个典型包处理流程（包收取，
+        处理，发送）将被讨论，展示不同功能块如何工作在一起来创建可靠，快速的包处理。
+    </listitem>
+    <listitem>
+        特殊硬件特性来加速包处理：关键包管理硬件加速特性被讨论：
+        <orderedlist>
+            <listitem>报分类和优先级的管理</listitem>
+            <listitem>缓冲管理</listitem>
+            <listitem>包链表锁</listitem>
+            <listitem>包顺序管理</listitem>
+        </orderedlist>
+    </listitem>
+    <listitem>
+        调度/同步/顺序（SSO）单元：SSO单元被介绍。SSO提供OCTEON处理器唯一的基本性能;SSO是OCTEON的心脏。
+        因为SSO的重要性，这个章节的剩余部分介绍了它的硬件加速特性，并介绍软件如何利用他们的优点。
+    </listitem>
+</itemizedlist>
 
- <sect1>
-     <title>第三章：软件综述</title>
- </sect1>
+<para>第三章：软件综述</para>
+<para>
+    这个章节提供了OCTEON处理器软件相关话题的综述，包含软件构架，多核问题，伸缩和内存管理。
+</para>
+<para>
+    这个章节介绍如下话题：
+</para>
+<itemizedlist>
+    <listitem>cnMIPS内核</listitem>
+    <listitem>简单执行API（HAL）硬件抽象层</listitem>
+    <listitem>不同运行时环境的选择</listitem>
+    <listitem>软件构架的问题</listitem>
+    <listitem>应用程序二进制接口（ABI）支持</listitem>
+    <listitem>工具：交叉开发和本地工具链</listitem>
+    <listitem>物理地址映射和缓存在OCTEON处理器中</listitem>
+    <listitem>虚拟内存</listitem>
+    <listitem>启动内存全局内存</listitem>
+    <listitem>加载器</listitem>
+    <listitem>软件开发工具集代码环境</listitem>
+</itemizedlist>
+<para>贯穿这个章节相关的SDK文档可以引用来帮助阅读者找到更加详细信息。</para>
 
- <sect1>
-     <title>第四章：SDK指导</title>
- </sect1>
+<para>第四章：SDK指导</para>
+<para>
+    这个章节介绍软件开发工具集（SDK）从一个实际动手的角度提供一个安装SDK的过程，并包含游泳的信息给用户
+   新嵌入式软件开发或新Linux。
+</para>
+<para>
+   这个章节被设计来议论SDK文档被提供给SDK更高视角，一步步指示从SDK安装到运行例子代码在评估板上。
+</para>
+<para>
+   动手章节这个指南有：
+</para>
+<itemizedlist>
+   <listitem>系统管理任务</listitem>
+   <listitem>连接开发目标板</listitem>
+   <listitem>查看目标板串口输出</listitem>
+   <listitem>收集关键硬件信息</listitem>
+   <listitem>安装SDK</listitem>
+   <listitem>游历安装的SDK</listitem>
+   <listitem>构建和运行SE-S应用程序（hello）</listitem>
+   <listitem>运行hello在多核上</listitem>
+   <listitem>构建和运行Linux</listitem>
+   <listitem>运行SE-UM例子（named-block）</listitem>
+   <listitem>运行linux-filter作为SE_S应用程序（混杂系统）</listitem>
+   <listitem>运行linux-filter作为Linux SE-UM应用程序</listitem>
+   <listitem>运行linux-filter作为SE-UM应用程序在多核上</listitem>
+   <listitem>创建客户应用程序</listitem>
+</itemizedlist>
 
- <sect1>
-     <title>第五章：软件调试指导</title>
-     <para>
-     </para>
- </sect1>
 
- <sect1>
-     <title>关于OCTEON应用程序性能调谐白皮书</title>
-     <para>
-     </para>
- </sect1>
+<para>第五章：软件调试指导</para>
+<para>
+    这个章节提供信息和动手步骤来帮助用户开始使用GDB调试软件，包含：
+</para>
+<itemizedlist>
+    <listitem>调试SE-S应用：hello</listitem>
+    <listitem>调试Linux内核</listitem>
+    <listitem>调试SE-UM应用:named-block</listitem>
+    <listitem>调试SE-S应用在OCTEON模拟器上</listitem>
+    <listitem>调试Linux在OCTEON模拟器上</listitem>
+    <listitem>构建vmlinux来运行在模拟器上</listitem>
+    <listitem>运行Linux User-Mode应用程序在模拟器上</listitem>
+</itemizedlist>
 
- <sect1>
-     <title>术语</title>
-     <para>
-     </para>
- </sect1>
+<para>关于OCTEON应用程序性能调谐白皮书</para>
+<para>
+    这个白皮书提供了如何通过利用OCTEON处理器独有的优点来优化软件性能
+</para>
+<para>
+    这个白皮书描述了修改通用区域带来大的性能提升。在这个文档中展现的性能提升的技术时工业标准。
+    其他利用Cavium Networks特定硬件加速。
+</para>
+<para>
+    这个白皮书定位给高性能设计和后期开发性能优化。单核和双核问题被讨论。
+</para>
+<para>
+    性能调谐问题被分为四个小节：
+    <orderedlist>
+        <listitem>高性能软件构架</listitem>
+        <listitem>调谐内核最小集合</listitem>
+        <listitem>调谐多核应用程序</listitem>
+        <listitem>Linux特定调谐</listitem>
+    </orderedlist>
+</para>
+<para>
+    在每个小节，性能调谐选择被展现从最简单到最复杂的实现
+</para>
+<para>
+    性能评估工具的信息也被提供
+</para>
+<para>
+    性能调谐是艺术和科学。白皮书没有视图覆盖所有可能，只有很多通用方法中的一些。
+</para>
+
+<para>术语</para>
+<para>
+    术语包含在这个卷里的名词。一些通用工业名词也被提供为了方便
+</para>
+
+<para>章节的软拷贝</para>
+<para>OCTEON程序员指南可在<ulink url="https://support.caviumnetworks.com">
+        https://support.caviumnetworks.com</ulink>中找到</para>
+
+<para>哪里或者更多信息</para>
+<para>其他资源包含SDK的扩展文档，硬件参考手册，白皮书和应用程序摘要都在
+    <ulink url="https://support.caviumnetworks.com">https://support.caviumnetworks.com</ulink></para>
+<para>MIPS构架手册在<ulink url="http://www.mips.com/">http://www.mips.com/</ulink></para>
+
