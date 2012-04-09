@@ -1,0 +1,80 @@
+<sect1>
+    <title>介绍</title>
+    <para>
+        这个文档描述了修改通用部分来带来大的性能改进。在文档中描述的很多性能改进技术是工业标准。
+        一些是利用Cavium Network特定硬件加速。
+    </para>
+    <para>
+        这个文档定位高性能的设计，和后期开发性能调谐。单核和多核问题被定位。
+    </para>
+    <para>
+        性能调谐问题被分为四个小节：
+        <orderedlist>
+            <listitem>高性能软件构架</listitem>
+            <listitem>调谐核的最小集合</listitem>
+            <listitem>调谐多核应用程序</listitem>
+            <listitem>Linux特定调谐</listitem>
+        </orderedlist>
+    </para>
+    <para>
+        在每个小节，性能调谐悬在被介绍从简单到复杂。
+    </para>
+    <para>
+        性能评估工具的信息也被提供。
+    </para>
+    <para>
+        性能调谐是一门艺术也是科学。这个文档不能试图覆盖所有可能，指示一些通用问题的一些。
+    </para>
+    <para>
+         对于OCTEON白皮书的其他话题，请分别联系Cavium Networks。
+    </para>
+    <sect2>
+        <title>参考文献</title>
+        以下引用提供更多信息：
+        <itemizedlist>
+            <listitem>spinlock的定义:<ulink url="http://en.wikipedia.org/wiki/Spin_lock">
+                    http://en.wikipedia.org/wiki/Spin_lock</ulink></listitem>
+            <listitem>并发编程: Ben-Ari, M. Principles of Concurrent and Distributed Programming
+                 Butenhof, David. Programming With Posix Threads.
+            </listitem>
+            <listitem>OCTEON硬件参考手册</listitem>
+            <listitem>OCTEON程序员指南</listitem>
+            <listitem>OCTEON处理器软件开发工具集(SDK)的文档集合</listitem>
+            <listitem>硬件模拟器：查看SDK文档</listitem>
+            <listitem>Viewzilla: 查看SDK文档</listitem>
+            <listitem>Perfzilla: 查看SDK文档</listitem>
+            <listitem>Oprofile: 查看SDK文档哪个和<ulink url="http://oprofile.sourceforge.net">
+                    http://oprofile.sourceforge.net</ulink>
+                <ulink url="http://oprofile.sourceforge.net/doc/index.html">
+                    http://oprofile.sourceforge.net/doc/index.html</ulink>
+            </listitem>
+            <listitem>Profile-Feedbck优化-查看SDK文档</listitem>
+            <listitem>Oct-Profile - 查看SDK文档</listitem>
+        </itemizedlist>
+    </sect2>
+</sect1>
+<sect1>
+    <title>性能调谐综述</title>
+    <para>
+         指导不同单元在哪个相关总线上对于避免和检测瓶颈很有用。一些性能修改能提升性能在一个领域而在其他地方创建
+         一个问题。重要的是理解整体系统硬件体系在作出修改前。修改后，验证性能修改真的能提升性能。
+    </para>
+    <para>
+        可能，设计和代码对于高性能。应用程序在运行和调试后，使用这些方法最可能提高性能：
+        <orderedlist>
+            <listitem>建立一个性能调谐测试台</listitem>
+            <listitem>减少核数目到最小单位：如果可能只使用一个</listitem>
+            <listitem>使用最小集合核来调谐系统最大性能</listitem>
+                    <listitem>伸张系统。性能结果应该时最小集合性能的倍数：线性增长。如果不是，性能问题需要被
+                        定位。</listitem>
+        </orderedlist>
+    </para>
+    <para>
+        需要注意对于应用程序，性能调谐修改可能引起更差性能因为应用程序自身问题。
+    </para>
+    <note>如果可能，修改一个一次，检查修改之前和之后验证修改提升性能。</note>
+    <sect2>
+        <title>测试建立</title>
+    </sect2>
+</sect1>
+

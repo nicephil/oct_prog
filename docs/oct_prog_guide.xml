@@ -4,6 +4,7 @@ PUBLIC "-//OASIS//DTD DocBook XML V4.5/zh_cn" "http://www.oasis-open.org/docbook
 [
 <!ENTITY section_1 SYSTEM "preface.xml">
 <!ENTITY section_2 SYSTEM "intr.xml">
+<!ENTITY section_6 SYSTEM "perf_tuning.xml">
 ]>
 <book>
     <info>
@@ -60,9 +61,9 @@ PUBLIC "-//OASIS//DTD DocBook XML V4.5/zh_cn" "http://www.oasis-open.org/docbook
 
         <chapter>
             <title>
-                OCTEON Application Performance Tuning 
-                Whitepaper
+                OCTEON应用程序性能调谐白皮书
             </title>
+            &section_6; <!--6-->
         </chapter>
 
         <appendix>
